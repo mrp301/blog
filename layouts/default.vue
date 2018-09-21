@@ -1,9 +1,9 @@
 <template>
   <div>
-   <p>致傷</p>
+   <p>ヘッダー</p>
     <!-- この中にpageの中身が入る -->
     <nuxt/>
-    <p>致傷</p>
+    <p>フッター</p>
   </div>
 </template>
 
