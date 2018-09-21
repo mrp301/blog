@@ -1,3 +1,9 @@
+const contentful = require('contentful')
+const contentfulClient = contentful.createClient({
+  space: "73eynbkzierp",
+  accessToken: "9e3cd460b700634368abbf527877323b5e78d42e43d00e9b5073e28724876a18"
+})
+
 module.exports = {
   //読み込むプラグイン一覧。appに挿入される
   plugins: [
@@ -39,5 +45,13 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  generate: {
+   fallback: '404.html',
+   routes () {
+     return contentfulClient.getEntries().then(({ items }) => {
+       return items.map(post => `/${post.fields.slug}`)
+     })
+   }
+ },
 }
