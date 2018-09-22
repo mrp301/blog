@@ -1,8 +1,12 @@
 <!-- コンポーネント内のファイルでのthisはappにアクセスできる -->
 <template>
-<div>
-  <h1>{{post.fields.title}}</h1>
-  <div v-html="$md.render(post.fields.content)"></div>
+<div class='main'>
+  <div class='container'>
+    <div class='article'>
+      <h1>{{post.fields.title}}</h1>
+      <div v-html="$md.render(post.fields.content)"></div>
+    </div>
+  </div>
 </div>
 </template>
 
@@ -40,3 +44,39 @@ export default {
   }
 }
 </script>
+
+<style lang='scss'>
+
+  .main {
+    background: #f6f6f6;
+  }
+
+  .container {
+    padding: 24px 0 40px;
+    max-width: 1280px;
+    width: calc(100% - 50px);
+    margin: 0 auto;
+  }
+
+  .article {
+    background: #fff;
+    padding: 32px;
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  p {
+    line-height: 1.9;
+  }
+
+  img {
+    margin: 1.5em 0;
+    width: 100%;
+  }
+
+</style>

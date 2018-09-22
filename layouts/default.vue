@@ -1,11 +1,19 @@
 <template>
   <div>
-   <p>ヘッダー</p>
+  <header-tmp></header-tmp>
     <!-- この中にpageの中身が入る -->
     <nuxt/>
     <p>フッター</p>
   </div>
 </template>
+
+<script>
+  import headerTmp from '~/components/headerTmp';
+
+  export default {
+    components: {headerTmp}
+  }
+</script>
 
 <!-- scopedをつけるとこのファイル内でしたcssが有効にならない -->
 <style scoped>
@@ -57,4 +65,5 @@ p {
   color: #fff;
   background-color: #35495e;
 }
+
 </style>
