@@ -1,6 +1,6 @@
 <!-- コンポーネント内のファイルでのthisはappにアクセスできる -->
 <template>
-<div class='main'>
+<div class='main body'>
   <div class='container'>
     <div class='article'>
       <h1>{{post.fields.title}}</h1>
@@ -61,22 +61,6 @@ export default {
   .article {
     background: #fff;
     padding: 32px;
-  }
-
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    line-height: 1.4;
-  }
-
-  p {
-    line-height: 1.9;
-  }
-
-  img {
-    margin: 1.5em 0;
-    width: 100%;
   }
 
 </style>

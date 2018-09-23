@@ -1,0 +1,17 @@
+body {
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.l-right-small {
+  margin-right: 8px
+}
+
+.l-right-midium {
+  margin-right: 16px
+}
+
+.l-right-large {
+  margin-right: 24px
+}

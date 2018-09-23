@@ -55,6 +55,8 @@ module.exports = {
    }
  },
  css: [
-   '@/assets/reset.css'
+   '@/assets/css/reset.css',
+   '@/assets/css/github-markdown.css',
+   '@/assets/css/base.css'
  ]
 }
