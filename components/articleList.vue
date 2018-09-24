@@ -10,7 +10,10 @@
     </div>
     <div class='articleList-body'>
       <nuxt-link class='articleList-title' :to="{ name: 'slug', params: { slug: post.fields.slug }}">{{ post.fields.title }}</nuxt-link>
-      <div class='articleList-info'>記事の情報</div>
+      <div class='articleList-info'>公開日:<time v-bind:datetime="post.fields.date">{{post.fields.date}}</time></div>
+    </div>
+    <div class='l-articleList-label'>
+      <span class='label l-right-xsmall'>{{post.fields.category}}</span>
     </div>
   </div>
 </template>
@@ -25,6 +28,17 @@ export default {
     }
   },
 
+  computed: {
+    categoryReplace() {
+      //this.post.fields.category.splice(0, 1);
+      console.log(this.post.fields.category);
+      const post =  JSON.stringify(this.post.fields.category);
+      //return this.post.fields.category.replace('\"', '');
+
+      return post;
+    }
+  },
+
   methods: {
     thumbnailChack : function(post) {
       try {
@@ -33,7 +47,7 @@ export default {
       } catch(e) {
         return false;
       }
-    }
+    },
   }
 
 }
@@ -41,48 +55,59 @@ export default {
 
 <style lang='scss' scoped>
 
-  .articleList {
-    padding: 16px;
-    border-bottom: 1px solid #e8e8e8;
+.articleList {
+  padding: 16px;
+  border-bottom: 1px solid #e8e8e8;
 
-    &:last-child {
-      border-bottom: none;
-    }
+  &:last-child {
+    border-bottom: none;
+  }
 
-    & > a {
-      text-decoration: none;
-    }
+  & a {
+    text-decoration: none;
+  }
 
-    .articleList-thumbnail {
-      width: 40px;
-      height: 40px;
+  .articleList-thumbnail {
+    width: 40px;
+    height: 40px;
 
-      & img {
-        width: 100%;
-        border-radius: 2px;
-      }
-    }
-
-    .articleList-body {
-      line-height: 1.4;
-
-      .articleList-title {
-        color: #777;
-        font-size: 16px;
-        font-weight: 700;
-        margin-bottom: 4px;
-        display: block;
-      }
-
-      .articleList-info {
-        color: #999;
-        font-size: 12px;
-      }
+    & img {
+      width: 100%;
+      border-radius: 2px;
     }
   }
 
-  .l-articleList {
-    display: flex;
+  .articleList-body {
+    line-height: 1.4;
+
+    .articleList-title {
+      color: #777;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .articleList-info {
+      color: #999;
+      font-size: 12px;
+    }
   }
+
+  .l-articleList-label {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    & span {
+      vertical-align: top;
+    }
+  }
+}
+
+.l-articleList {
+  position: relative;
+  display: flex;
+}
 
 </style>

@@ -26,9 +26,10 @@
     background: #55c500;
 
     .header {
-      max-width: 1100px;
+      width: 1000px;
       height: 56px;
       margin: 0 auto;
+      padding: 0 32px;
 
       .header-start,
       .header-end {

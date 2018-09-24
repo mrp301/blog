@@ -21,7 +21,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/png', href: 'assets/img/favcon.png', sizes: '80x80' },
     ]
   },
   /*
@@ -57,6 +57,7 @@ module.exports = {
  css: [
    '@/assets/css/reset.css',
    '@/assets/css/github-markdown.css',
-   '@/assets/css/base.css'
+   '@/assets/css/base.css',
+   '@/assets/css/module/label.scss'
  ]
 }

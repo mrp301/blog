@@ -2,7 +2,10 @@
   <div>
     <headerTmp></headerTmp>
       <!-- この中にpageの中身が入る -->
-      <nuxt/>
+      <div class='container l-container'>
+        <nuxt/>
+        <sideBar></sideBar>
+      </div>
     <footerTmp></footerTmp>
   </div>
 </template>
@@ -10,11 +13,13 @@
 <script>
   import headerTmp from '~/components/headerTmp'
   import footerTmp from '~/components/footerTmp'
+  import sideBar from '~/components/sideBar'
 
   export default {
     components: {
       headerTmp,
-      footerTmp
+      footerTmp,
+      sideBar
     }
   }
 
@@ -33,41 +38,15 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
-  box-sizing: border-box;
-  margin: 0;
+.container {
+  width: 1000px;
+  padding: 32px 16px;
+  margin: 0 auto;
 }
 
-p {
-  background: red;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.l-container {
+  display: flex;
+  justify-content: center;
+  align-items: end;
 }
 </style>
