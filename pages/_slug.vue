@@ -5,6 +5,7 @@
     <div class='article'>
       <h1>{{post.fields.title}}</h1>
       <div v-html="$md.render(post.fields.content)"></div>
+      <img v-bind:src="post.fields.thumbnail.fields.file.url">
     </div>
   </div>
 </div>

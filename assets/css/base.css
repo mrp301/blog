@@ -2,6 +2,11 @@ body {
   box-sizing: border-box;
   font-size: 16px;
   line-height: 1.9;
+  background: #f6f6f6;
+}
+
+.l-right-xsmall {
+  margin-right: 4px
 }
 
 .l-right-small {
@@ -14,4 +19,28 @@ body {
 
 .l-right-large {
   margin-right: 24px
+}
+
+.l-right-xlarge {
+  margin-right: 32px
+}
+
+
+.l-bottom-xsmall {
+  margin-bottom: 4px
+}
+
+.l-bottom-small {
+  margin-bottom: 8px
+}
+
+.l-bottom-midium {
+  margin-bottom: 16px
+}
+
+.l-bottom-large {
+  margin-bottom: 24px
+}
+.l-bottom-xlarge {
+  margin-bottom: 32px
 }

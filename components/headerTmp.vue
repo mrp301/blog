@@ -19,6 +19,7 @@
 </template>
 
 <style lang='scss' scoped>
+
   .header-container {
     color: #fff;
     font-size: 12px;
