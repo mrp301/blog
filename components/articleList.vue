@@ -13,7 +13,7 @@
       <div class='articleList-info'>公開日:<time v-bind:datetime="post.fields.date">{{post.fields.date}}</time></div>
     </div>
     <div class='l-articleList-label'>
-      <span class='label l-right-xsmall'>{{post.fields.category}}</span>
+      <span class='label l-right-xsmall' v-for='item in post.fields.category' :key='item.fields'>{{ item }}</span>
     </div>
   </div>
 </template>
@@ -30,12 +30,14 @@ export default {
 
   computed: {
     categoryReplace() {
+      console.log('配列' + this.post.fields.category);
+      //console.log(this.post.fields.category);
       //this.post.fields.category.splice(0, 1);
-      console.log(this.post.fields.category);
-      const post =  JSON.stringify(this.post.fields.category);
+      //console.log(this.post.fields.category);
+      //const post =  JSON.stringify(this.post.fields.category);
       //return this.post.fields.category.replace('\"', '');
-
-      return post;
+      return 'hoge';
+      //return post;
     }
   },
 
