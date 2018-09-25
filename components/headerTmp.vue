@@ -58,7 +58,7 @@
         text-decoration: none;
         border: solid 2px #fff;
         border-radius: 4px;
-        padding: 8px 16px;
+        padding: 4px 16px;
         transition: background-color .08s;
 
         &:hover {

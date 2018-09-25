@@ -5,7 +5,7 @@
         <img v-bind:src="post.fields.thumbnail.fields.file.url">
       </div>
       <div v-else>
-        <img src='../assets/img/uesr_icon_sample.png'>
+        <img src='../assets/img/no_image.png'>
       </div>
     </div>
     <div class='articleList-body'>
