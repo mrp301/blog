@@ -1,7 +1,7 @@
 <template>
   <div class='articleList l-articleList'>
     <div class='articleList-thumbnail l-right-small'>
-      <div v-if="thumbnailChack(post.fields.thumbnail)">
+      <div v-if="thumbnailCheck(post.fields.thumbnail)">
         <img v-bind:src="post.fields.thumbnail.fields.file.url">
       </div>
       <div v-else>
@@ -13,7 +13,12 @@
       <div class='articleList-info'>公開日:<time v-bind:datetime="post.fields.date">{{post.fields.date}}</time></div>
     </div>
     <div class='l-articleList-label'>
-      <span class='label l-right-xsmall' v-for='item in post.fields.category' :key='item.fields'>{{ item }}</span>
+      <div v-if="categoryCheck(post.fields.category)">
+        <span class='label l-right-xsmall' v-for='value in post.fields.category' :key='value.category'>{{ value }}</span>
+      </div>
+      <div v-else>
+        <span class='label'>カテゴリなし</span>
+      </div>
     </div>
   </div>
 </template>
@@ -30,19 +35,27 @@ export default {
 
   computed: {
     categoryReplace() {
-      console.log('配列' + this.post.fields.category);
+      console.log('スラッグ' + this.post.fields.category);
       //console.log(this.post.fields.category);
       //this.post.fields.category.splice(0, 1);
       //console.log(this.post.fields.category);
       //const post =  JSON.stringify(this.post.fields.category);
       //return this.post.fields.category.replace('\"', '');
-      return 'hoge';
+      return this.post.fields.category;
       //return post;
     }
   },
 
   methods: {
-    thumbnailChack : function(post) {
+    thumbnailCheck : function(post) {
+      try {
+        post.fields;
+        return true;
+      } catch(e) {
+        return false;
+      }
+    },
+    categoryCheck : function(post) {
       try {
         post.fields;
         return true;
