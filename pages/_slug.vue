@@ -8,6 +8,7 @@
 
 <script>
 export default {
+
   //[asyncData]ページのレンダリング前に処理ができる
   asyncData ({ app, params, error }) {
     //記事の情報持ってくるやつ

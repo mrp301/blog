@@ -2,6 +2,7 @@
   <div>
     <headerTmp></headerTmp>
       <!-- この中にpageの中身が入る -->
+      <mainVisual></mainVisual>
       <div class='container l-container'>
         <nuxt/>
         <sideBar class='l-sideBar'></sideBar>
@@ -14,12 +15,14 @@
   import headerTmp from '~/components/headerTmp'
   import footerTmp from '~/components/footerTmp'
   import sideBar from '~/components/sideBar'
+  import mainVisual from '~/components/mainVisual'
 
   export default {
     components: {
       headerTmp,
       footerTmp,
-      sideBar
+      sideBar,
+      mainVisual
     }
   }
 

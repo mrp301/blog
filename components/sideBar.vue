@@ -53,9 +53,10 @@
   .profile-header {
     height: 80px;
     background: #55c500;
-    background-image: url('../assets/img/header.png');
+    background-image: url('../assets/img/profileHeader.png');
     background-repeat:no-repeat;
     background-size: cover;
+    background-position: center;
 
     & > img {
       width: 100%;

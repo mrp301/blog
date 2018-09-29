@@ -1,5 +1,6 @@
 <template>
   <div class='articleList-container'>
+    <mainVisual></mainVisual>
     <p class='articleList-header'>記事一覧</p>
     <articleList v-for="post in posts" :key="post.fields.slug" :post="post"></articleList>
   </div>
@@ -7,14 +8,11 @@
 
 <script>
 import articleList from '~/components/articleList'
-import mainVisual from '~/components/mainVisual'
 
 export default {
-  layout: 'index',
 
   components: {
     articleList,
-    mainVisual
   },
 
   asyncData ({ app }) {
