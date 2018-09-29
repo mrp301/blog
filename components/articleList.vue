@@ -11,7 +11,9 @@
     <div class='l-articleList-body'>
       <div class='articleList-body'>
         <div class='articleList-title'>{{ post.fields.title }}</div>
-        <div class='articleList-info'>公開日:<time v-bind:datetime="post.fields.date">{{post.fields.date}}</time></div>
+        <div class='articleList-info'>
+          更新:<time v-bind:datetime="post.sys.UpdateAt">{{ displayUpdateAt }}</time>
+        </div>
       </div>
       <div class='articleList-label'>
         <div v-if="categoryCheck(post.fields.category)">
@@ -27,11 +29,20 @@
 
 <script>
 
+import dateformat from 'dateformat';
+
 export default {
+
   props: {
     post: {
       type: Object,
       required: true
+    }
+  },
+
+  computed: {
+    displayUpdateAt () {
+      return dateformat(new Date(this.post.sys.updatedAt), 'yyyy-mm-dd');
     }
   },
 
@@ -84,6 +95,10 @@ export default {
     }
   }
 
+  &:hover {
+    background: #e8e8e8;
+  }
+
   .l-articleList-body {
     display: flex;
     width: 100%;
@@ -116,11 +131,6 @@ export default {
       vertical-align: top;
     }
   }
-}
-
-/* smartPhone */
-@media screen and (max-width: 640px) {
-
 }
 
 </style>

@@ -1,13 +1,39 @@
 <!-- コンポーネント内のファイルでのthisはappにアクセスできる -->
 <template>
   <div class='article'>
+    <div class='article-info'>
+      <time class='article-date l-right-small' :datetime="post.sys.CreateAt">公開:{{post.fields.date}}</time>
+      <time class='article-date l-right-small' :datetime="post.sys.UpdateAt">最終更新:{{ displayUpdateAt }}</time>
+      <span v-if="categoryCheck(post.fields.category)" class='label'>{{post.fields.category[0]}}</span>
+      <span v-else class='label'>カテゴリなし</span>
+    </div>
     <h1>{{post.fields.title}}</h1>
     <div v-html="$md.render(post.fields.content)"></div>
   </div>
 </template>
 
 <script>
+
+import dateformat from 'dateformat';
+
 export default {
+
+  computed: {
+    displayUpdateAt () {
+      return dateformat(new Date(this.post.sys.updatedAt), 'yyyy-mm-dd');
+    }
+  },
+
+  methods: {
+    categoryCheck : function(post) {
+      try {
+        post.fields;
+        return true;
+      } catch(e) {
+        return false;
+      }
+    }
+  },
 
   //[asyncData]ページのレンダリング前に処理ができる
   asyncData ({ app, params, error }) {
@@ -49,7 +75,18 @@ export default {
   max-width: 700px;
   width: 100%;
   padding: 32px;
-  /* padding: 24px 0 40px; */
+
+  .article-info {
+
+    & > * {
+      vertical-align: middle;
+    }
+
+    .article-date {
+      color: #777;
+      font-size: 1.2rem;
+    }
+  }
 }
 
 @media screen and (max-width: 640px) {

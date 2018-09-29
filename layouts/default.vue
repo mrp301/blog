@@ -23,7 +23,7 @@
       footerTmp,
       sideBar,
       mainVisual
-    }
+    },
   }
 
 </script>

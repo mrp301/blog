@@ -16,17 +16,26 @@ export default {
   },
 
   asyncData ({ app }) {
-     return app.$contentful.getEntries({
-         //作った順
-         order: '-sys.createdAt',
-       })
-       .then(({ items }) => {
-         return {
-           //postsと言うkeyにitemsと言う変数を挿入する
-           posts: items
-         }
-       })
-   },
+    return app.$contentful.getEntries({
+     //多分テーブル指定してる
+    // content_type: 'post',
+
+    //マッチするか調べる（＝＝と同じっすよ）
+    // 'params.slug': 'update',
+    //'fields.category[match]': 'update',
+
+    //全てのクエリから検索する
+    // 'query': 'update',
+    //作った順
+    order: '-sys.updatedAt'
+  })
+    .then(({ items }) => {
+      return {
+        //postsと言うkeyにitemsと言う変数を挿入する
+        posts: items
+      }
+    })
+  },
   // htmlのheadに挿入されるやつ
   head () {
     return {
