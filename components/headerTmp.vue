@@ -21,12 +21,13 @@
 <style lang='scss' scoped>
 
   .header-container {
+    width: 100%;
     color: #fff;
-    font-size: 12px;
+    font-size: 1.2rem;
     background: #55c500;
 
     .header {
-      width: 1000px;
+      max-width: 1000px;
       height: 56px;
       margin: 0 auto;
       padding: 0 32px;
@@ -35,6 +36,11 @@
       .header-end {
         display: flex;
         align-items: center;
+        width: 50%;
+      }
+
+      .header-end {
+        justify-content: flex-end;
       }
 
       .header-logo {
@@ -42,7 +48,7 @@
       }
 
       .header-link {
-        font-size: 12px;
+        font-size: 1.2rem;
         color: #fff;
         text-decoration: none;
 
@@ -54,7 +60,7 @@
 
       .header-btn {
         color: #fff;
-        font-size: 12px;
+        font-size: 1.2rem;
         text-decoration: none;
         border: solid 2px #fff;
         border-radius: 4px;
@@ -75,6 +81,19 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+  }
+
+  /* smartPhone */
+  @media screen and (max-width: 640px) {
+    .header-container {
+      .header {
+        padding: 0 3%;
+
+        .header-community {
+          display: none;
+        }
+      }
     }
   }
 </style>

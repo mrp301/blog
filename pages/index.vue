@@ -49,4 +49,12 @@ export default {
   color: #777;
 }
 
+/* smartPhone */
+@media screen and (max-width: 640px) {
+
+  .articleList-container {
+    width: 100%;
+  }
+}
+
 </style>

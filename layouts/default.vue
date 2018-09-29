@@ -4,7 +4,7 @@
       <!-- この中にpageの中身が入る -->
       <div class='container l-container'>
         <nuxt/>
-        <sideBar></sideBar>
+        <sideBar class='l-sideBar'></sideBar>
       </div>
     <footerTmp></footerTmp>
   </div>
@@ -39,7 +39,7 @@ html {
 }
 
 .container {
-  width: 1000px;
+  max-width: 1000px;
   padding: 32px 16px;
   margin: 0 auto;
 }
@@ -48,5 +48,27 @@ html {
   display: flex;
   justify-content: center;
   align-items: end;
+}
+
+.l-sideBar {
+  margin-left: 16px;
+}
+
+/* smartPhone */
+@media screen and (max-width: 640px) {
+
+  .container {
+    & > * {
+      margin-bottom: 16px;
+    }
+  }
+
+  .l-container {
+    display: block;
+  }
+
+  .l-sideBar {
+    margin-left: 0;
+  }
 }
 </style>

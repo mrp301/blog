@@ -33,19 +33,6 @@ export default {
     }
   },
 
-  computed: {
-    categoryReplace() {
-      console.log('スラッグ' + this.post.fields.category);
-      //console.log(this.post.fields.category);
-      //this.post.fields.category.splice(0, 1);
-      //console.log(this.post.fields.category);
-      //const post =  JSON.stringify(this.post.fields.category);
-      //return this.post.fields.category.replace('\"', '');
-      return this.post.fields.category;
-      //return post;
-    }
-  },
-
   methods: {
     thumbnailCheck : function(post) {
       try {
@@ -71,7 +58,7 @@ export default {
 <style lang='scss' scoped>
 
 .articleList {
-  padding: 16px;
+  padding: 1.6rem;
   border-bottom: 1px solid #e8e8e8;
 
   &:last-child {
@@ -80,6 +67,11 @@ export default {
 
   & a {
     text-decoration: none;
+  }
+
+  &.l-articleList {
+    position: relative;
+    display: flex;
   }
 
   .articleList-thumbnail {
@@ -97,7 +89,7 @@ export default {
 
     .articleList-title {
       color: #777;
-      font-size: 16px;
+      font-size: 1.6rem;
       font-weight: 700;
       margin-bottom: 4px;
       display: block;
@@ -105,7 +97,7 @@ export default {
 
     .articleList-info {
       color: #999;
-      font-size: 12px;
+      font-size: 1.2rem;
     }
   }
 
@@ -120,9 +112,9 @@ export default {
   }
 }
 
-.l-articleList {
-  position: relative;
-  display: flex;
+/* smartPhone */
+@media screen and (max-width: 640px) {
+
 }
 
 </style>

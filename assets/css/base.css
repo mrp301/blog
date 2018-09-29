@@ -2,7 +2,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
+  width: 100%;
   font-size: 16px;
   color: #333;
   line-height: 1.9;
@@ -49,6 +54,27 @@ body {
 .l-bottom-large {
   margin-bottom: 24px
 }
+
 .l-bottom-xlarge {
   margin-bottom: 32px
+}
+
+.is-pc {
+  display: block;
+}
+
+.is-sp {
+  display: none;
+}
+
+/* smartPhone */
+@media screen and (max-width: 640px) {
+
+  .is-pc {
+    display: none;
+  }
+
+  .is-sp {
+    display: block;
+  }
 }

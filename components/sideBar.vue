@@ -26,84 +26,87 @@
 
 <style lang='scss' scoped>
 
-  .sideBar {
-    width: 200px;
+.sideBar {
+  width: 200px;
 
-    * p {
-      line-height: 1.5;
+  * p {
+    line-height: 1.5;
+  }
+
+  .sideBar-item {
+    padding: 16px;
+    background: #fff;
+    font-size: 12px;
+  }
+
+  .sideBar-heading {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+  }
+}
+
+.profile {
+  position: relative;
+  background: #fff;
+
+  .profile-header {
+    height: 80px;
+    background: #55c500;
+    background-image: url('../assets/img/header.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+
+    & > img {
+      width: 100%;
     }
+  }
 
-    .sideBar-item {
-      padding: 16px;
-      background: #fff;
-      font-size: 12px;
+  /* todo:あとでコンポーネント分ける。ユーザーデータもcontentfulに載せる */
+
+  .profile-icon {
+    width: 60px;
+    height: 60px;
+    border: solid 4px #fff;
+    border-radius: 50%;
+
+
+    & > img {
+      width: 100%;
+      border-radius: 50%;
     }
+  }
 
-    .sideBar-heading {
-      font-size: 16px;
-      font-weight: 700;
+  .l-profile-icon {
+    position: absolute;
+    top: 50px;
+    left: 8px;
+  }
+
+  .profile-body {
+    padding: 0 16px 16px;
+
+    .profile-name {
+      font-weight: 600;
       color: #333;
     }
-  }
 
-  .l-sideBar {
-    margin-left: 16px;
-  }
-
-  .profile {
-    position: relative;
-    background: #fff;
-
-    .profile-header {
-      height: 80px;
-      background: #55c500;
-      background-image: url('../assets/img/header.png');
-      background-repeat:no-repeat;
-      background-size: cover;
-
-      & > img {
-        width: 100%;
-      }
+    .l-profile-name {
+      margin-left: 60px;
     }
 
-    /* todo:あとでコンポーネント分ける。ユーザーデータもcontentfulに載せる */
-
-    .profile-icon {
-      width: 60px;
-      height: 60px;
-      border: solid 4px #fff;
-      border-radius: 50%;
-
-
-      & > img {
-        width: 100%;
-        border-radius: 50%;
-      }
-    }
-
-    .l-profile-icon {
-      position: absolute;
-      top: 50px;
-      left: 8px;
-    }
-
-    .profile-body {
-      padding: 0 16px 16px;
-
-      .profile-name {
-        font-weight: 600;
-        color: #333;
-      }
-
-      .l-profile-name {
-        margin-left: 60px;
-      }
-
-      .profile-info {
-        font-size: 12px;
-        line-height: 1.5;
-      }
+    .profile-info {
+      font-size: 12px;
+      line-height: 1.5;
     }
   }
+}
+
+/* smartPhone */
+@media screen and (max-width: 640px) {
+  .sideBar {
+    width: 100%;
+  }
+}
 
 </style>
