@@ -58,6 +58,9 @@ html {
 @media screen and (max-width: 640px) {
 
   .container {
+    padding-right: 2%;
+    padding-left: 2%;
+
     & > * {
       margin-bottom: 16px;
     }

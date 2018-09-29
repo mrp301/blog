@@ -53,8 +53,8 @@ export default {
 @media screen and (max-width: 640px) {
 
   .article {
-    padding-right: 2%;
-    padding-left: 2%;
+    padding-right: 3%;
+    padding-left: 3%;
   }
 }
 </style>
