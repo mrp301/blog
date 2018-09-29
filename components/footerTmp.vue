@@ -2,12 +2,12 @@
   <footer>
     <div class='footer-container'>
       <div class='footer l-footer'>
-        <ul class='footer-list'>
+        <ul class='footer-list footer-list-start'>
           <li><a href=''>© 2018 Hishinuma Inc.</a></li>
           <li><a href=''>利用契約</a></li>
           <li><a href=''>ガイドライン</a></li>
         </ul>
-        <ul class='footer-list'>
+        <ul class='footer-list footer-list-end'>
           <li><a target='_blank' href='https://github.com/hishinuma616/blog'>github</a></li>
           <li><a target='_blank' href='https://twitter.com/tubdaka616'>twitter</a></li>
           <li><a href=''>タグ</a></li>
@@ -41,14 +41,20 @@
   .footer-list {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+
+    &.footer-list-start {
+      width: 60%;
+    }
+
+    &.footer-list-end {
+      justify-content: flex-end;
+      width: 40%;
+    }
 
     li {
       margin-right: 8px;
       align-items: center;
-
-      &:last-child {
-        margin-right: 0;
-      }
 
       a {
         font-size: 1.2rem;
@@ -81,6 +87,15 @@
 
     .footer-list {
       flex-wrap: wrap;
+
+      &.footer-list-start,
+      &.footer-list-end {
+        width: 100%;
+      }
+
+      &.footer-list-end {
+        justify-content: flex-start;
+      }
     }
   }
 }

@@ -42,10 +42,10 @@ export default {
 </script>
 
 <style lang='scss'>
-  .article {
-    background: #fff;
-    width: 800px;
-    padding: 32px;
-    /* padding: 24px 0 40px; */
-  }
+.article {
+  background: #fff;
+  max-width: 800px;
+  padding: 32px;
+  /* padding: 24px 0 40px; */
+}
 </style>
