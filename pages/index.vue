@@ -7,10 +7,14 @@
 
 <script>
 import articleList from '~/components/articleList'
+import mainVisual from '~/components/mainVisual'
 
 export default {
+  layout: 'index',
+
   components: {
-    articleList
+    articleList,
+    mainVisual
   },
 
   asyncData ({ app }) {
