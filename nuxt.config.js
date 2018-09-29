@@ -20,7 +20,7 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no' },
       { hid: 'og:title', property: 'og:title', content: 'Yuuta' },
-      { hid: 'og:title', property: 'og:image', content: 'https://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png' },
+      { hid: 'og:image', property: 'og:image', content: '/ogIcon.png' },
       { hid: 'description', name: 'description', content: 'Yuutaはnuxt.jsで作られたQiitaのデザインをパクったなんでもブログです。' }
     ],
     link: [
