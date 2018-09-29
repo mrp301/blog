@@ -70,8 +70,8 @@
 @media screen and (max-width: 640px) {
 
   .footer-container {
-    padding-right: 3%;
-    padding-left: 3%;
+    padding-right: 2%;
+    padding-left: 2%;
 
     .footer {
       height: auto;

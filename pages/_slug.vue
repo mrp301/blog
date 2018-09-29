@@ -49,4 +49,12 @@ export default {
   padding: 32px;
   /* padding: 24px 0 40px; */
 }
+
+@media screen and (max-width: 640px) {
+
+  .article {
+    padding-right: 2%;
+    padding-left: 2%;
+  }
+}
 </style>

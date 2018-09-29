@@ -88,7 +88,7 @@
   @media screen and (max-width: 640px) {
     .header-container {
       .header {
-        padding: 0 3%;
+        padding: 0 2%;
 
         .header-community {
           display: none;
