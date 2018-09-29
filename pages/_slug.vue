@@ -44,7 +44,8 @@ export default {
 <style lang='scss'>
 .article {
   background: #fff;
-  max-width: 800px;
+  max-width: 700px;
+  width: 100%;
   padding: 32px;
   /* padding: 24px 0 40px; */
 }

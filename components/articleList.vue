@@ -1,5 +1,5 @@
 <template>
-  <div class='articleList l-articleList'>
+  <nuxt-link class='articleList l-articleList' :to="{ name: 'slug', params: { slug: post.fields.slug }}">
     <div class='articleList-thumbnail l-right-small'>
       <div v-if="thumbnailCheck(post.fields.thumbnail)">
         <img v-bind:src="post.fields.thumbnail.fields.file.url">
@@ -8,19 +8,21 @@
         <img src='../assets/img/no_image.png'>
       </div>
     </div>
-    <div class='articleList-body'>
-      <nuxt-link class='articleList-title' :to="{ name: 'slug', params: { slug: post.fields.slug }}">{{ post.fields.title }}</nuxt-link>
-      <div class='articleList-info'>公開日:<time v-bind:datetime="post.fields.date">{{post.fields.date}}</time></div>
-    </div>
-    <div class='l-articleList-label'>
-      <div v-if="categoryCheck(post.fields.category)">
-        <span class='label l-right-xsmall' v-for='value in post.fields.category' :key='value.category'>{{ value }}</span>
+    <div class='l-articleList-body'>
+      <div class='articleList-body'>
+        <div class='articleList-title'>{{ post.fields.title }}</div>
+        <div class='articleList-info'>公開日:<time v-bind:datetime="post.fields.date">{{post.fields.date}}</time></div>
       </div>
-      <div v-else>
-        <span class='label'>カテゴリなし</span>
+      <div class='articleList-label'>
+        <div v-if="categoryCheck(post.fields.category)">
+          <span class='label' v-for='value in post.fields.category' :key='value.category'>{{ value }}</span>
+        </div>
+        <div v-else>
+          <span class='label'>カテゴリなし</span>
+        </div>
       </div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
@@ -57,21 +59,19 @@ export default {
 
 <style lang='scss' scoped>
 
+.l-articleList {
+  position: relative;
+  display: flex;
+}
+
 .articleList {
+  width: 100%;
   padding: 1.6rem;
   border-bottom: 1px solid #e8e8e8;
+  text-decoration: none;
 
   &:last-child {
     border-bottom: none;
-  }
-
-  & a {
-    text-decoration: none;
-  }
-
-  &.l-articleList {
-    position: relative;
-    display: flex;
   }
 
   .articleList-thumbnail {
@@ -84,8 +84,14 @@ export default {
     }
   }
 
+  .l-articleList-body {
+    display: flex;
+    width: 100%;
+  }
+
   .articleList-body {
     line-height: 1.4;
+    width: 70%;
 
     .articleList-title {
       color: #777;
@@ -101,10 +107,10 @@ export default {
     }
   }
 
-  .l-articleList-label {
-    position: absolute;
-    top: 16px;
-    right: 16px;
+  .articleList-label {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
 
     & span {
       vertical-align: top;

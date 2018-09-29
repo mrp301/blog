@@ -3,16 +3,13 @@
     <div class='footer-container'>
       <div class='footer l-footer'>
         <ul class='footer-list footer-list-start'>
-          <li><a href=''>© 2018 Hishinuma Inc.</a></li>
-          <li><a href=''>利用契約</a></li>
-          <li><a href=''>ガイドライン</a></li>
+          <li><a target='_blank' href=''>© 2018 Hishinuma Inc.</a></li>
+          <li><a target='_blank' href='https://www.contentful.com/'>contentful</a></li>
+          <li><a target='_blank' href='https://www.netlify.com/'>netlify</a></li>
         </ul>
         <ul class='footer-list footer-list-end'>
           <li><a target='_blank' href='https://github.com/hishinuma616/blog'>github</a></li>
           <li><a target='_blank' href='https://twitter.com/tubdaka616'>twitter</a></li>
-          <li><a href=''>タグ</a></li>
-          <li><a href=''>Yuuta:Team</a></li>
-          <li><a href=''>ご意見</a></li>
         </ul>
       </div>
     </div>
