@@ -14,14 +14,16 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'blog',
+    title: 'Yuuta',
+    titleTemplate: '%s | Yuuta',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { hid: 'og:title', property: 'og:title', content: 'Yuuta' },
+      { hid: 'description', name: 'description', content: 'Yuutaはnuxt.jsで作られたQiitaのデザインをパクったなんでもブログです。' }
     ],
     link: [
-      { rel: 'icon', type: 'image/png', href: 'assets/img/favcon.png', sizes: '80x80' },
+      { rel: 'icon', type: 'image/png', href: '/favicon.png', sizes: '80x80' },
     ]
   },
   /*

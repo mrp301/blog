@@ -32,7 +32,8 @@ export default {
   // htmlのheadに挿入されるやつ
   head () {
     return {
-      title: "記事一覧"
+      title: 'Yuuta',
+      titleTemplate: 'Yuuta',
     }
   }
 }

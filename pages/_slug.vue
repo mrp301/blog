@@ -35,6 +35,7 @@ export default {
     return {
       title: this.post.fields.title,
       meta: [
+        { hid: 'og:title', property: 'og:title', content: this.post.fields.title },
       ]
     }
   }

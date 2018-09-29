@@ -4,8 +4,9 @@
       <div class='mainVisual-inner'>
         <div>
           <h1 class='mainVisual-title l-bottom-xxsmall'>Yuuta</h1>
-          <div class='mainVisual-date'>
-            <p>最終更新：<time datetime='2018-5-20'>メインビジュアルの説明が入る</time></p>
+          <div class='mainVisual-description'>
+            <p>Yuutaはnuxt.jsで作られた<br>
+              Qiitaのデザインをパクったなんでもブログです。</p>
           </div>
         </div>
       </div>
@@ -18,9 +19,9 @@
 .mainVisual {
   position: relative;
   max-width: 100%;
-  height: 37.5vw;
-  max-height: 300px;
-  background-image: url(../assets/img/header.png);
+  height: 40vw;
+  max-height: 500px;
+  background-image: url(../assets/img/mainVisualImage.png);
   background-size: cover;
   background-position: center;
 　background-repeat: no-repeat;
@@ -48,7 +49,7 @@
       text-shadow: 0 0 3px #666;
     }
 
-    .mainVisual-date {
+    .mainVisual-description {
       color: #ccc;
       font-size: 1.2rem;
     }
