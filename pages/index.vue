@@ -11,12 +11,29 @@ import articleList from '~/components/articleList'
 
 export default {
 
+  watchQuery: ['name'],
+
   components: {
     articleList,
   },
 
-  asyncData ({ app }) {
-    return app.$contentful.getEntries({
+  //app = context.appの略
+  //app.$contentful
+  asyncData ({ app, query }) {
+    const params = {
+      order: '-sys.updatedAt'
+    }
+
+    if (query.name === 'masumi') {
+      params.limit = 1
+      //params['fields.category[match]'] = 'イラスト'
+    }
+
+    return app.$contentful.getEntries(params)
+    // return app.$contentful.getEntries({
+
+
+
      //多分テーブル指定してる
     // content_type: 'post',
 
@@ -27,8 +44,8 @@ export default {
     //全てのクエリから検索する
     // 'query': 'update',
     //作った順
-    order: '-sys.updatedAt'
-  })
+
+  // })
     .then(({ items }) => {
       return {
         //postsと言うkeyにitemsと言う変数を挿入する

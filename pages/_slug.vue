@@ -42,6 +42,8 @@ export default {
     return app.$contentful.getEntries({
         //table名
         content_type: 'post',
+        //クリックしたクエリパラメータのスラッグを代入している
+        //[in]は===と同じ意味
         'fields.slug[in]': params.slug,
         //ロードする記事数
         limit: 1

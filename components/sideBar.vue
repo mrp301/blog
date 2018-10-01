@@ -16,7 +16,7 @@
     <div class='sideBar-item'>
       <h2 class='sideBar-heading'>カテゴリー</h2>
       <ul>
-        <li>テクノロジー</li>
+        <li><nuxt-link :to="{name: 'index', query: {name: 'masumi'} }">テクノロジー</nuxt-link></li>
         <li>イラスト</li>
         <li>日記</li>
       </ul>
