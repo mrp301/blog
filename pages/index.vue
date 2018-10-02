@@ -11,7 +11,7 @@ import articleList from '~/components/articleList'
 
 export default {
 
-  watchQuery: ['name'],
+  watchQuery: ['category'],
 
   components: {
     articleList,
@@ -21,18 +21,27 @@ export default {
   //app.$contentful
   asyncData ({ app, query }) {
     const params = {
+      content_type: 'post',
       order: '-sys.updatedAt'
     }
 
-    if (query.name === 'masumi') {
-      params.limit = 1
-      //params['fields.category[match]'] = 'イラスト'
+    if (query.category) {
+      params['fields.category[in]'] = query.category
     }
+
+    // masumin.com
+
+    // if (query.name === 'イラスト') {
+    //   params.content_type = 'post'
+    //   params.query = 'emo'
+    //
+    //   //params.limit = 1
+    //
+    //   //params['fields.category[match]'] = 'イラスト'
+    // }
 
     return app.$contentful.getEntries(params)
     // return app.$contentful.getEntries({
-
-
 
      //多分テーブル指定してる
     // content_type: 'post',

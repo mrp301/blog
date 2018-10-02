@@ -16,13 +16,45 @@
     <div class='sideBar-item'>
       <h2 class='sideBar-heading'>カテゴリー</h2>
       <ul>
-        <li><nuxt-link :to="{name: 'index', query: {name: 'masumi'} }">テクノロジー</nuxt-link></li>
-        <li>イラスト</li>
-        <li>日記</li>
+        <li v-for="category in categories" :key="category.name">
+          <nuxt-link :to="{name: 'index', query: {category: category.name} }">{{ category.name }}({{ category.count }})</nuxt-link>
+        </li>
       </ul>
     </div>
   </div>
 </template>
+
+<script>
+
+import { mapState } from 'vuex'
+
+export default {
+  computed: {
+    ...mapState(['posts']),
+
+    categories () {
+      const categories = []
+
+      this.posts.map(post => {
+        if (!Array.isArray(post.fields.category)) {
+          return
+        }
+        const category = categories.find(category => category.name === post.fields.category[0])
+        if (category) {
+          category.count = category.count + 1
+        } else {
+          categories.push({
+            name: post.fields.category[0],
+            count: 1
+          })
+        }
+      })
+
+      return categories
+    }
+  }
+}
+</script>
 
 <style lang='scss' scoped>
 

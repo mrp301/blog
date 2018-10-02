@@ -46,7 +46,7 @@ export default {
         //[in]は===と同じ意味
         'fields.slug[in]': params.slug,
         //ロードする記事数
-        limit: 1
+        // limit: 1
 
       //promiseの記述。非同期処理が全て終わったら動くやつ。
       }).then(entries => {
