@@ -29,7 +29,6 @@ export default {
       params['fields.category[in]'] = query.category
     }
 
-    // masumin.com
 
     // if (query.name === 'イラスト') {
     //   params.content_type = 'post'
