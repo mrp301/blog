@@ -7,6 +7,9 @@
       <span v-if="categoryCheck(post.fields.category)" class='label'>{{post.fields.category[0]}}</span>
       <span v-else class='label'>カテゴリなし</span>
     </div>
+    <p>{{ value }}</p>
+    <input v-model="message" type='text'>
+    <button v-on:click="commit(message)">値変更</button>
     <h1>{{post.fields.title}}</h1>
     <div v-html="$md.render(post.fields.content)"></div>
   </div>
@@ -17,8 +20,11 @@
 import dateformat from 'dateformat';
 
 export default {
-
   computed: {
+    value(){
+      return this.$store.state.slug.count;
+    },
+
     displayUpdateAt () {
       return dateformat(new Date(this.post.sys.updatedAt), 'yyyy-mm-dd');
     }
@@ -32,7 +38,11 @@ export default {
       } catch(e) {
         return false;
       }
-    }
+    },
+
+    commit(value){
+      return this.$store.commit('slug/setData', value)
+    },
   },
 
   //[asyncData]ページのレンダリング前に処理ができる
