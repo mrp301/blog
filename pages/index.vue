@@ -12,7 +12,6 @@ import articleList from '~/components/articleList'
 export default {
 
   watchQuery: ['category'],
-
   components: {
     articleList,
   },

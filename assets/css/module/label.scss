@@ -6,4 +6,11 @@
   color: #fff;
   border-radius: 2px;
   background: #b3b3b3;
+  border: solid 1px #b3b3b3;
+  transition: background .2s;
+
+  &:hover {
+    color: #b3b3b3;
+    background: #fff;
+  }
 }

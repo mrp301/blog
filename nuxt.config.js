@@ -64,5 +64,10 @@ module.exports = {
    '@/assets/css/github-markdown.css',
    '@/assets/css/base.css',
    '@/assets/css/module/label.scss'
- ]
+ ],
+ router: {
+   scrollBehavior: function (to, from, savedPosition) {
+     return { x: 0, y: 0 }
+   }
+ }
 }

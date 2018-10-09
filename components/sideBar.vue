@@ -18,7 +18,7 @@
       <ul>
         <li v-for="category in categories" :key="category.name">
           <nuxt-link :to="{name: 'index', query: {category: category.name} }">{{ category.name }}({{ category.count }})</nuxt-link>
-        </li>
+        </li>  
       </ul>
     </div>
   </div>
