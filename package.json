@@ -18,7 +18,8 @@
     "dateformat": "^3.0.3",
     "markdown-it": "^8.4.2",
     "nuxt": "^1.0.0",
-    "prismjs": "^1.16.0"
+    "prism": "^4.1.2",
+    "prismjs": "git+https://github.com/mrp301/prism.git"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
