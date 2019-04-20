@@ -7,24 +7,24 @@
       <span v-if="categoryCheck(post.fields.category)" class='label'>{{post.fields.category[0]}}</span>
       <span v-else class='label'>カテゴリなし</span>
     </div>
-    <p>{{ value }}</p>
-    <input v-model="message" type='text'>
-    <button v-on:click="commit(message)">値変更</button>
     <h1>{{post.fields.title}}</h1>
-    <div v-html="$md.render(post.fields.content)"></div>
+    <div v-html="post.fields.content"></div>
   </div>
 </template>
 
 <script>
 
 import dateformat from 'dateformat';
+import Prism from '~/plugins/prism';
+import addClass from '~/plugins/addClass';
 
 export default {
-  computed: {
-    value(){
-      return this.$store.state.slug.count;
-    },
 
+  mounted() {
+    Prism.highlightAll()
+  },
+
+  computed: {
     displayUpdateAt () {
       return dateformat(new Date(this.post.sys.updatedAt), 'yyyy-mm-dd');
     }
@@ -45,37 +45,28 @@ export default {
     },
   },
 
-  //[asyncData]ページのレンダリング前に処理ができる
   asyncData ({ app, params, error }) {
-    //記事の情報持ってくるやつ
-    //getEntriesで引数を送っている。
     return app.$contentful.getEntries({
-        //table名
-        content_type: 'post',
-        //クリックしたクエリパラメータのスラッグを代入している
-        //[in]は===と同じ意味
-        'fields.slug[in]': params.slug,
-        //ロードする記事数
-        // limit: 1
-
-      //promiseの記述。非同期処理が全て終わったら動くやつ。
-      }).then(entries => {
-        if (entries.items.length === 0) {
-          return error({ statusCode: 404 })
-        }
-        return {
-          post: entries.items[0]
-        }
-      }).catch(error => {
-        return error({ statusCode: 500 })
-      })
+      content_type: 'post',
+      //[in]は===と同じ意味。contentful独自の記述
+      'fields.slug[in]': params.slug,
+    }).then(entries => {
+      if (entries.items.length === 0) {
+        return error({ statusCode: 404 })
+      }
+      entries.items[0].fields.content = addClass.addClass(app.$md.render(entries.items[0].fields.content))
+      return {
+        post: entries.items[0]
+      }
+    }).catch(error => {
+      return error({ statusCode: 500 })
+    })
   },
+
   head () {
     return {
       title: this.post.fields.title,
-      meta: [
-        { hid: 'og:title', property: 'og:title', content: this.post.fields.title },
-      ]
+      meta: [{ hid: 'og:title', property: 'og:title', content: this.post.fields.title }],
     }
   }
 }

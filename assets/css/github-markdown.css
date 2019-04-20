@@ -170,12 +170,12 @@
   border-style: none;
 }
 
-.article code,
+/* .article code,
 .article kbd,
 .article pre {
   font-family: monospace, monospace;
   font-size: 1em;
-}
+} */
 
 .article hr {
   box-sizing: content-box;
@@ -612,7 +612,7 @@
   word-wrap: normal;
 }
 
-.article pre>code {
+/* .article pre>code {
   padding: 0;
   margin: 0;
   font-size: 100%;
@@ -620,7 +620,7 @@
   white-space: pre;
   background: transparent;
   border: 0;
-}
+} */
 
 .article .highlight {
   margin-bottom: 16px;
@@ -631,7 +631,7 @@
   word-break: normal;
 }
 
-.article .highlight pre,
+/* .article .highlight pre,
 .article pre {
   padding: 16px;
   overflow: auto;
@@ -639,7 +639,7 @@
   line-height: 1.45;
   background-color: #f6f8fa;
   border-radius: 3px;
-}
+} */
 
 .article pre code {
   display: inline;

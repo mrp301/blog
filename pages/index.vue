@@ -16,8 +16,6 @@ export default {
     articleList,
   },
 
-  //app = context.appの略
-  //app.$contentful
   asyncData ({ app, query }) {
     const params = {
       content_type: 'post',
@@ -28,39 +26,13 @@ export default {
       params['fields.category[in]'] = query.category
     }
 
-
-    // if (query.name === 'イラスト') {
-    //   params.content_type = 'post'
-    //   params.query = 'emo'
-    //
-    //   //params.limit = 1
-    //
-    //   //params['fields.category[match]'] = 'イラスト'
-    // }
-
-    return app.$contentful.getEntries(params)
-    // return app.$contentful.getEntries({
-
-     //多分テーブル指定してる
-    // content_type: 'post',
-
-    //マッチするか調べる（＝＝と同じっすよ）
-    // 'params.slug': 'update',
-    //'fields.category[match]': 'update',
-
-    //全てのクエリから検索する
-    // 'query': 'update',
-    //作った順
-
-  // })
-    .then(({ items }) => {
+    return app.$contentful.getEntries(params).then(({ items }) => {
       return {
-        //postsと言うkeyにitemsと言う変数を挿入する
         posts: items
       }
     })
   },
-  // htmlのheadに挿入されるやつ
+
   head () {
     return {
       title: 'Yuuta',

@@ -8,7 +8,7 @@ module.exports = {
   //読み込むプラグイン一覧。appに挿入される
   plugins: [
     '~/plugins/contentful',
-    '~/plugins/markdown-it'
+    '~/plugins/markdown-it',
   ],
   /*
   ** Headers of the page
@@ -63,7 +63,8 @@ module.exports = {
    '@/assets/css/reset.css',
    '@/assets/css/github-markdown.css',
    '@/assets/css/base.css',
-   '@/assets/css/module/label.scss'
+   '@/assets/css/module/label.scss',
+   '@/assets/css/prism.css',
  ],
  router: {
    scrollBehavior: function (to, from, savedPosition) {

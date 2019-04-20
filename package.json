@@ -13,10 +13,12 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "contentful": "^7.0.3",
     "dateformat": "^3.0.3",
     "markdown-it": "^8.4.2",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "prismjs": "^1.16.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
