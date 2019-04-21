@@ -5,7 +5,7 @@
       <div class='profile-icon l-profile-icon'><img src='../assets/img/profile.jpg'></div>
       <div class='profile-body'>
         <div class='profile-name l-profile-name'>mrble</div>
-        <div class='profile-info'>まーぶると読みます。可愛い絵がすき 東方、プリパラ、プリチャン、みらいちゃん</div>
+        <div class='profile-info'>女児です。</div>
       </div>
     </div>
 
@@ -18,7 +18,7 @@
       <ul>
         <li v-for="category in categories" :key="category.name">
           <nuxt-link :to="{name: 'index', query: {category: category.name} }">{{ category.name }}({{ category.count }})</nuxt-link>
-        </li>  
+        </li>
       </ul>
     </div>
   </div>
@@ -31,8 +31,8 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     //postsに記事情報がすでに入ってる
-    //this.postsで見れるよ。記事に数だけ要素を持った配列が帰ってくる
-    ...mapState(['posts']),
+    //this.postsで見れるよ。記事の数だけ要素を持った配列が帰ってくる
+    //...mapState(['posts']),
 
     categories () {
       //記事の数分の配列を持っている。各記事のカテゴリを参照する場合、下記のようになる
@@ -41,7 +41,7 @@ export default {
 
       //post=> 関数部分の処理を配列の要素全てに適応させた上で配列[post]を生成する
       //このpostはthis.postsを引数として受け取っている
-      this.posts.map(post => {
+      this.$store.state.posts.map(post => {
         //isArray()オブジェクトが配列ならtrue。
         //オブジェクトが配列じゃない場合true,処理終了
         //「カテゴリなし」対策。配列を持っていない場合弾く

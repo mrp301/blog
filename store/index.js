@@ -1,8 +1,6 @@
 //モジュールモードで記載されている
 export const state = () => {
-  return {
-    posts: []
-  }
+  posts: []
 }
 
 export const mutations = {
@@ -13,6 +11,7 @@ export const mutations = {
 
 export const actions = {
   //index.jsでのみ利用可能（モジュールモードの場合は）
+  //context生成のタイミングで実行される
   nuxtServerInit({ commit }, { app, error }) {
     //contentfulのapiを叩く
     return app.$contentful.getEntries({

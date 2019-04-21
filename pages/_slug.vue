@@ -13,7 +13,6 @@
 </template>
 
 <script>
-
 import dateformat from 'dateformat';
 import Prism from '~/plugins/prism';
 import addClass from '~/plugins/addClass';
