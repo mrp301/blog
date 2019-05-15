@@ -5,8 +5,7 @@
         <div>
           <h1 class='mainVisual-title l-bottom-xxsmall'>Yuuta</h1>
           <div class='mainVisual-description'>
-            <p>Yuutaはnuxt.jsで作られた<br>
-              Qiitaのデザインをパクったなんでもブログです。</p>
+            <p>Yuutaはnuxt.jsで作られたなんでもブログです。</p>
           </div>
         </div>
       </div>
@@ -21,7 +20,7 @@
   max-width: 100%;
   height: 40vw;
   max-height: 500px;
-  background-image: url(../assets/img/mainVisualImage.png);
+  background-image: url(../assets/img/mainVisualImage.jpg);
   background-size: cover;
   background-position: center;
 　background-repeat: no-repeat;
