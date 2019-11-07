@@ -1,11 +1,10 @@
-<!-- コンポーネント内のファイルでのthisはappにアクセスできる -->
 <template>
-  <div class='article'>
-    <div class='article-info'>
-      <time class='article-date l-right-small' :datetime="post.sys.CreateAt">公開:{{post.fields.date}}</time>
-      <time class='article-date l-right-small' :datetime="post.sys.UpdateAt">最終更新:{{ displayUpdateAt }}</time>
-      <span v-if="categoryCheck(post.fields.category)" class='label'>{{post.fields.category[0]}}</span>
-      <span v-else class='label'>カテゴリなし</span>
+  <div class="article">
+    <div class="article-info">
+      <time class="article-date l-right-small" :datetime="post.sys.CreateAt">公開:{{ post.fields.date }}</time>
+      <time class="article-date l-right-small" :datetime="post.sys.UpdateAt">最終更新:{{ displayUpdateAt }}</time>
+      <span v-if="categoryCheck(post.fields.category)" class="label">{{ post.fields.category[0] }}</span>
+      <span v-else class="label">カテゴリなし</span>
     </div>
     <h1>{{post.fields.title}}</h1>
     <div v-html="post.fields.content"></div>
@@ -45,20 +44,17 @@ export default {
   },
 
   asyncData ({ app, params, error }) {
-    return app.$contentful.getEntries({
-      content_type: 'post',
-      //[in]は===と同じ意味。contentful独自の記述
-      'fields.slug[in]': params.slug,
-    }).then(entries => {
-      if (entries.items.length === 0) {
-        return error({ statusCode: 404 })
+    return app.$contentful.getEntry(params.slug)
+    .then((entry) => {
+      entry.fields.content = addClass.addClass(app.$md.render(entry.fields.content));
+      return { post: entry }
+    }).catch((e) => {
+      console.log(e)
+      if (e.sys.id === 'NotFound') {
+        error({ statusCode: 404, message: 'NotFound' })
+      } else {
+        error({ statusCode: 500, message: 'システムエラー' })
       }
-      entries.items[0].fields.content = addClass.addClass(app.$md.render(entries.items[0].fields.content))
-      return {
-        post: entries.items[0]
-      }
-    }).catch(error => {
-      return error({ statusCode: 500 })
     })
   },
 
@@ -70,7 +66,6 @@ export default {
   }
 }
 </script>
-
 <style lang='scss'>
 .article {
   background: #fff;

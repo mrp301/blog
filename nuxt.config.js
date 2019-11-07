@@ -53,27 +53,32 @@ module.exports = {
     }
   },
   generate: {
-   fallback: '404.html',
-   routes () {
-     return contentfulClient.getEntries().then(({ items }) => {
-       return items.map(post => `/${post.fields.slug}`)
-     })
-   }
- },
- css: [
-   '@/assets/css/reset.css',
-   '@/assets/css/github-markdown.css',
-   '@/assets/css/base.css',
-   '@/assets/css/module/label.scss',
-   '@/assets/css/prism.css',
- ],
- router: {
-   scrollBehavior: function (to, from, savedPosition) {
-     return { x: 0, y: 0 }
-   },
-   middleware: 'getCurrentUrl'
- },
- modules: [
-   '@nuxtjs/dotenv',
- ]
+    fallback: '404.html',
+      routes () {
+        return contentfulClient.getEntries().then(({ items }) => {
+        return items.map(post => `/${post.fields.slug}`)
+      })
+    }
+  },
+  css: [
+    '@/assets/css/reset.css',
+    '@/assets/css/github-markdown.css',
+    '@/assets/css/base.css',
+    '@/assets/css/module/label.scss',
+    '@/assets/css/prism.css',
+  ],
+  router: {
+    scrollBehavior: function (to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    },
+    middleware: 'getCurrentUrl'
+  },
+  modules: [
+    '@nuxtjs/dotenv',
+  ],
+  styleResources: {
+    scss: [
+      '~/assets/css/setting.scss'
+    ]
+  },
 }

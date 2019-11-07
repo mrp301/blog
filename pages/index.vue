@@ -1,13 +1,12 @@
 <template>
-  <div class='articleList-container'>
-    <p class='articleList-header'>記事一覧</p>
+  <div class="articleList-container">
+    <p class="articleList-header">記事一覧</p>
     <articleList v-for="post in posts" :key="post.fields.slug" :post="post" />
   </div>
 </template>
 
 <script>
 import articleList from '~/components/articleList'
-
 export default {
   watchQuery: ['category'],
   components: {
@@ -27,9 +26,10 @@ export default {
       }
     })
   },
-  data() {
-    return {
-      baseURL: process.env.BASE_URL,
+  computed: {
+    getAsset() {
+
+      return "あ"
     }
   },
   head () {

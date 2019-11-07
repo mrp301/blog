@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link class='articleList l-articleList' :to="{ name: 'slug', params: { slug: post.fields.slug }}">
+  <nuxt-link class='articleList l-articleList' :to="{ name: 'slug', params: { slug: post.sys.id } }">
     <div class='articleList-thumbnail l-right-small'>
       <img v-if="thumbnailCheck(post.fields.thumbnail)" v-bind:src="post.fields.thumbnail.fields.file.url">
       <img v-else src='../assets/img/no_image.png'>
