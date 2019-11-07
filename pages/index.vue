@@ -9,29 +9,29 @@
 import articleList from '~/components/articleList'
 
 export default {
-
   watchQuery: ['category'],
   components: {
     articleList,
   },
-
   asyncData ({ app, query }) {
     const params = {
       content_type: 'post',
       order: '-sys.updatedAt'
     }
-
     if (query.category) {
       params['fields.category[in]'] = query.category
     }
-
     return app.$contentful.getEntries(params).then(({ items }) => {
       return {
         posts: items
       }
     })
   },
-
+  data() {
+    return {
+      baseURL: process.env.BASE_URL,
+    }
+  },
   head () {
     return {
       title: 'Yuuta',

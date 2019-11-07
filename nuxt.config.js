@@ -1,8 +1,9 @@
-const contentful = require('contentful')
+require('dotenv').config();
+const contentful = require('contentful');
 const contentfulClient = contentful.createClient({
-  space: "73eynbkzierp",
-  accessToken: "9e3cd460b700634368abbf527877323b5e78d42e43d00e9b5073e28724876a18"
-})
+  space: process.env.space,
+  accessToken: process.env.accessToken
+});
 
 module.exports = {
   //読み込むプラグイン一覧。appに挿入される
@@ -71,5 +72,8 @@ module.exports = {
      return { x: 0, y: 0 }
    },
    middleware: 'getCurrentUrl'
- }
+ },
+ modules: [
+   '@nuxtjs/dotenv',
+ ]
 }
