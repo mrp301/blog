@@ -81,4 +81,8 @@ module.exports = {
       '~/assets/css/setting.scss'
     ]
   },
+  env: {
+    space: process.env.space,
+    accessToken: process.env.accessToken,
+  },
 }
