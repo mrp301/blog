@@ -5,7 +5,7 @@ const contentfulClient = contentful.createClient({
   accessToken: process.env.accessToken
 });
 
-module.exports = {
+export default {
   //読み込むプラグイン一覧。appに挿入される
   plugins: [
     '~/plugins/contentful',
