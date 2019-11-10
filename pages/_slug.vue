@@ -27,7 +27,6 @@ export default {
       return dateformat(new Date(this.post.sys.updatedAt), 'yyyy-mm-dd');
     }
   },
-
   methods: {
     categoryCheck : function(post) {
       try {
@@ -37,14 +36,12 @@ export default {
         return false;
       }
     },
-
     commit(value){
       return this.$store.commit('slug/setData', value)
     },
   },
-
-  asyncData ({ app, params, error }) {
-    return app.$contentful.getEntry(params.slug)
+  async asyncData ({ app, params, error }) {
+    return await app.$contentful.getEntry(params.slug)
     .then((entry) => {
       entry.fields.content = addClass.addClass(app.$md.render(entry.fields.content));
       return { post: entry }

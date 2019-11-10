@@ -2,22 +2,17 @@
 export const state = () => {
   posts: []
 }
-
 export const mutations = {
   setPosts(state, { posts }) {
     state.posts = posts
   }
 }
-
 export const actions = {
-  //index.jsでのみ利用可能（モジュールモードの場合は）
-  //context生成のタイミングで実行される
   nuxtServerInit({ commit }, { app, error }) {
-    //contentfulのapiを叩く
     return app.$contentful.getEntries({
-      content_type: 'post'
+      content_type: 'post',
+      order: '-sys.updatedAt'
     }).then(({ items }) => {
-      //受け取ったデータをcommit。mutations経由で格納している。
       commit('setPosts', { posts: items })
     }).catch(e => {
       return error({ statusCode: 403 })
