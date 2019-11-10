@@ -18,7 +18,7 @@
   </header>
 </template>
 
-<style lang='scss' scoped>
+<style lang="scss">
 .header-container {
   width: 100%;
   color: #fff;

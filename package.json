@@ -2,7 +2,7 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "Nuxt.js project",
-  "author": "hishinuma616 <hishinuma.yuta@a-tm.co.jp>",
+  "author": "mrble",
   "private": true,
   "scripts": {
     "dev": "nuxt",
