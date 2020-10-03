@@ -1,12 +1,13 @@
-//モジュールモードで記載されている
 export const state = () => {
   posts: []
-}
+};
+
 export const mutations = {
   setPosts(state, { posts }) {
-    state.posts = posts
-  }
-}
+    state.posts = posts;
+  },
+};
+
 export const actions = {
   nuxtServerInit({ commit }, { app, error }) {
     return app.$contentful.getEntries({
@@ -17,5 +18,13 @@ export const actions = {
     }).catch(e => {
       return error({ statusCode: 403 })
     })
-  }
-}
+  },
+};
+
+export const getters = {
+  getCurrentPost(state, id) {
+    return state.posts.find(({ sys: { space: { sys }}}) => {
+      sys.id === id;
+    });
+  },
+};

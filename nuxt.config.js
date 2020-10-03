@@ -57,7 +57,7 @@ export default {
     fallback: '404.html',
       routes () {
         return contentfulClient.getEntries().then(({ items }) => {
-        return items.map(post => `/${post.fields.slug}`)
+          return items.map(post => `/${post.fields.slug}`)
       })
     }
   },
@@ -69,7 +69,7 @@ export default {
     '@/assets/css/module/label.scss',
   ],
   router: {
-    scrollBehavior: function (to, from, savedPosition) {
+    scrollBehavior() {
       return { x: 0, y: 0 }
     },
     middleware: 'getCurrentUrl'

@@ -1,13 +1,25 @@
 <template>
   <div class="article">
     <div class="article-info">
-      <time class="article-date l-right-small" :datetime="post.sys.CreateAt">公開:{{ post.fields.date }}</time>
-      <time class="article-date l-right-small" :datetime="post.sys.UpdateAt">最終更新:{{ displayUpdateAt }}</time>
-      <span v-if="categoryCheck(post.fields.category)" class="label">{{ post.fields.category[0] }}</span>
+      <time
+        class="article-date l-right-small"
+        :datetime="post.sys.CreateAt">
+        公開:{{ post.fields.date }}
+      </time>
+      <time
+        class="article-date l-right-small"
+        :datetime="post.sys.UpdateAt">
+        最終更新:{{ displayUpdateAt }}
+      </time>
+      <span
+        v-if="categoryCheck(post.fields.category)"
+        class="label">
+        {{ post.fields.category[0] }}
+      </span>
       <span v-else class="label">カテゴリなし</span>
     </div>
     <h1>{{post.fields.title}}</h1>
-    <div v-html="post.fields.content"></div>
+    <div v-html="parseContent"></div>
   </div>
 </template>
 
@@ -20,10 +32,19 @@ export default {
   mounted() {
     Prism.highlightAll();
   },
+  asyncData ({ store, params: { slug }}) {
+    const post = store.state.posts.find(({ sys: { id }}) => {
+      return id === slug;
+    });
+    return { post };
+  },
   computed: {
-    displayUpdateAt () {
+    displayUpdateAt() {
       return dateformat(new Date(this.post.sys.updatedAt), 'yyyy-mm-dd');
-    }
+    },
+    parseContent() {
+      return this.$md.render(this.post.fields.content);
+    },
   },
   methods: {
     categoryCheck(post) {
@@ -37,19 +58,6 @@ export default {
     commit(value){
       return this.$store.commit('slug/setData', value);
     },
-  },
-  async asyncData ({ app, params, error }) {
-    return await app.$contentful.getEntry(params.slug)
-    .then((entry) => {
-      entry.fields.content = addClass.addClass(app.$md.render(entry.fields.content));
-      return { post: entry }
-    }).catch((e) => {
-      if (e.sys.id === 'NotFound') {
-        error({ statusCode: 404, message: 'NotFound' })
-      } else {
-        error({ statusCode: 500, message: 'システムエラー' })
-      }
-    });
   },
   head () {
     return {
