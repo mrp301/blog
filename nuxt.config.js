@@ -10,6 +10,7 @@ export default {
   plugins: [
     '~/plugins/contentful',
     '~/plugins/markdown-it',
+    '~/plugins/prism',
   ],
   /*
   ** Headers of the page
@@ -65,7 +66,6 @@ export default {
     '@/assets/css/github-markdown.css',
     '@/assets/css/base.css',
     '@/assets/css/module/label.scss',
-    '@/assets/css/prism.css',
   ],
   router: {
     scrollBehavior: function (to, from, savedPosition) {

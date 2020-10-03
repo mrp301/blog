@@ -18,7 +18,7 @@ import addClass from '~/plugins/addClass';
 
 export default {
 
-  mounted() {
+  created() {
     Prism.highlightAll()
   },
 
