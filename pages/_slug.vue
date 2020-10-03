@@ -17,18 +17,16 @@ import Prism from '~/plugins/prism';
 import addClass from '~/plugins/addClass';
 
 export default {
-
-  created() {
-    Prism.highlightAll()
+  mounted() {
+    Prism.highlightAll();
   },
-
   computed: {
     displayUpdateAt () {
       return dateformat(new Date(this.post.sys.updatedAt), 'yyyy-mm-dd');
     }
   },
   methods: {
-    categoryCheck : function(post) {
+    categoryCheck(post) {
       try {
         post.fields;
         return true;
@@ -37,7 +35,7 @@ export default {
       }
     },
     commit(value){
-      return this.$store.commit('slug/setData', value)
+      return this.$store.commit('slug/setData', value);
     },
   },
   async asyncData ({ app, params, error }) {
@@ -46,48 +44,18 @@ export default {
       entry.fields.content = addClass.addClass(app.$md.render(entry.fields.content));
       return { post: entry }
     }).catch((e) => {
-      console.log(e)
       if (e.sys.id === 'NotFound') {
         error({ statusCode: 404, message: 'NotFound' })
       } else {
         error({ statusCode: 500, message: 'システムエラー' })
       }
-    })
+    });
   },
-
   head () {
     return {
       title: this.post.fields.title,
       meta: [{ hid: 'og:title', property: 'og:title', content: this.post.fields.title }],
     }
-  }
-}
+  },
+};
 </script>
-<style lang='scss'>
-.article {
-  background: #fff;
-  max-width: 700px;
-  width: 100%;
-  padding: 32px;
-
-  .article-info {
-
-    & > * {
-      vertical-align: middle;
-    }
-
-    .article-date {
-      color: #777;
-      font-size: 1.2rem;
-    }
-  }
-}
-
-@media screen and (max-width: 640px) {
-
-  .article {
-    padding-right: 3%;
-    padding-left: 3%;
-  }
-}
-</style>
