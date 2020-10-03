@@ -51,7 +51,7 @@ export default {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
   },
   generate: {
     fallback: '404.html',
@@ -65,6 +65,7 @@ export default {
     '@/assets/css/reset.css',
     '@/assets/css/github-markdown.css',
     '@/assets/css/base.css',
+    '@/assets/css/style.scss',
     '@/assets/css/module/label.scss',
   ],
   router: {

@@ -28,25 +28,3 @@ export default {
   }
 }
 </script>
-<style>
-.articleList-container {
-  width: 600px;
-  background: #fff;
-}
-
-.articleList-header {
-  padding: 16px;
-  border-bottom: 1px solid #e8e8e8;
-  line-height: 1;
-  font-weight: bold;
-  color: #777;
-}
-
-/* smartPhone */
-@media screen and (max-width: 640px) {
-
-  .articleList-container {
-    width: 100%;
-  }
-}
-</style>

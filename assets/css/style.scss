@@ -1,0 +1,272 @@
+html {
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  word-spacing: 1px;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1000px;
+  padding: 32px 16px;
+  margin: 0 auto;
+}
+
+.l-container {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.l-sideBar {
+  margin-left: 16px;
+}
+
+/* smartPhone */
+@media screen and (max-width: 640px) {
+
+  .container {
+    padding-right: 2%;
+    padding-left: 2%;
+
+    & > * {
+      margin-bottom: 16px;
+    }
+  }
+
+  .l-container {
+    display: block;
+  }
+
+  .l-sideBar {
+    margin-left: 0;
+  }
+}
+
+
+.header-container {
+  width: 100%;
+  color: #fff;
+  font-size: 1.2rem;
+  background: #55c500;
+
+  .header {
+    max-width: 1000px;
+    height: 56px;
+    margin: 0 auto;
+    padding: 0 32px;
+
+    .header-start,
+    .header-end {
+      display: flex;
+      align-items: center;
+      width: 50%;
+    }
+
+    .header-end {
+      justify-content: flex-end;
+    }
+
+    .header-logo {
+      display: block;
+    }
+
+    .header-link {
+      font-size: 1.2rem;
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: #fff;
+      }
+    }
+
+    .header-btn {
+      color: #fff;
+      font-size: 1.2rem;
+      text-decoration: none;
+      border: solid 2px #fff;
+      border-radius: 4px;
+      padding: 4px 16px;
+      transition: background-color .08s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, .3);
+      }
+    }
+
+    .l-header-btn {
+      margin-right: 16px;
+    }
+  }
+
+  .l-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* smartPhone */
+@media screen and (max-width: 640px) {
+  .header-container {
+    .header {
+      padding: 0 3%;
+
+      .header-start {
+        width: 30%;
+      }
+      .header-end {
+        width: 70%;
+      }
+
+      .header-community {
+        display: none;
+      }
+    }
+  }
+}
+
+
+.articleList-container {
+  width: 600px;
+  background: #fff;
+}
+
+.articleList-header {
+  padding: 16px;
+  border-bottom: 1px solid #e8e8e8;
+  line-height: 1;
+  font-weight: bold;
+  color: #777;
+}
+
+/* smartPhone */
+@media screen and (max-width: 640px) {
+
+  .articleList-container {
+    width: 100%;
+  }
+}
+
+
+.mainVisual {
+  position: relative;
+  max-width: 100%;
+  height: 40vw;
+  max-height: 500px;
+  background-image: url('~assets/img/mainVisualImage.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+
+  .mainVisual-overlay {
+    background-color: rgba(0, 0, 0, .5);
+    height: 100%;
+    width: 100%;
+  }
+
+  .mainVisual-inner {
+    height: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 16px 12px;
+    display: flex;
+    align-items: center;
+
+    .mainVisual-title {
+      color: #fff;
+      font-size: 3.5rem;
+      font-weight: bold;
+      letter-spacing: .1rem;
+      text-shadow: 0 0 3px #666;
+    }
+
+    .mainVisual-description {
+      color: #ccc;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+/* smartPhone */
+@media screen and (max-width: 640px) {
+
+  .mainVisual {
+    .mainVisual-inner {
+      .mainVisual-title {
+        font-size: 2.4rem;
+      }
+    }
+  }
+}
+
+.l-articleList {
+  position: relative;
+  display: flex;
+}
+
+.articleList {
+  width: 100%;
+  padding: 1.6rem;
+  border-bottom: 1px solid #e8e8e8;
+  text-decoration: none;
+  transition: background .1s;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .articleList-thumbnail {
+    width: 10%;
+    max-width: 50px;
+    min-width: 40px;
+    height: 10%;
+    max-height: 50px;
+    min-height: 40px;
+    border: solid 1px #e8e8e8;
+    line-height: 0;
+
+    & img {
+      width: 100%;
+      border-radius: 2px;
+    }
+  }
+
+  &:hover {
+    background: #e8e8e8;
+  }
+
+  .l-articleList-body {
+    display: flex;
+    width: 90%;
+  }
+
+  .articleList-body {
+    line-height: 1.4;
+    width: 70%;
+
+    .articleList-title {
+      color: #777;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .articleList-info {
+      color: #999;
+      font-size: 1.2rem;
+    }
+  }
+
+  .articleList-label {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+
+    & span {
+      vertical-align: top;
+    }
+  }
+}
